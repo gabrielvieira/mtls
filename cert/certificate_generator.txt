@@ -1,0 +1,16 @@
+openssl req -newkey rsa:2048 \
+  -new -nodes -x509 \
+  -days 3650 \
+  -out server_cert.pem \
+  -keyout server_key.pem \
+  -subj "/C=US/ST=California/L=Mountain View/O=Your Organization/OU=Your Unit/CN=test.domain.com" \
+  -addext "subjectAltName = DNS:test.domain.com" 
+
+openssl req -newkey rsa:2048 \
+  -new -nodes -x509 \
+  -days 3650 \
+  -out client_cert.pem \
+  -keyout client_key.pem \
+  -subj "/C=US/ST=California/L=Mountain View client/O=Your Organization client/OU=Your Unit client/CN=test.domain.com" \
+  -addext "subjectAltName = DNS:test.domain.com" 
+
